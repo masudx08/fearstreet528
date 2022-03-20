@@ -9,8 +9,17 @@ const postContact =(data)=>{
     body: data
   })
   .then(res=>{
-    console.log(res, 'res  postContact')
+    console.log( 'success')
   })
+}
+
+const getContact = () =>{
+  return fetch(backendUrl+'contact')
+  .then(res=>res.json())
+}
+
+const deleteContactById = (id) => {
+  return fetch(backendUrl+'contact/'+id, {method:'DELETE'})
 }
 const postAppointment =(data)=>{
   fetch(backendUrl+'appointment', {
@@ -21,10 +30,19 @@ const postAppointment =(data)=>{
     body: data
   })
   .then(res=>{
-    console.log(res, 'res  postContact')
+    console.log('success')
   })
 }
+const getAppointment = () =>{
+  return fetch(backendUrl+'appointment')
+  .then(res=>res.json())
+}
 
+const deleteAppointmentById = (id) => {
+  return fetch(backendUrl+'appointment/'+id, {method:'DELETE'})
+}
 module.exports = {
-  postContact, postAppointment
+  postContact, postAppointment,
+  getContact, getAppointment,
+  deleteContactById, deleteAppointmentById
 }

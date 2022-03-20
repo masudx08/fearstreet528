@@ -21,5 +21,8 @@ const appointmentModel = new mongoose.Schema({
     type: String,
     required: true,
   },
+  appointmentTime:{
+    type: String
+  }
 });
 module.exports = mongoose.model("appointment", appointmentModel);
